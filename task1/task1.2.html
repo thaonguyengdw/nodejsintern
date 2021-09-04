@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Javascript implementation of the approach
+
+        let MAX = 26;
+
+        // Function to print the frequency
+        // of each of the characters of
+        // s in alphabetical order
+        function compressString(s, n) {
+            // To store the frequency
+            // of the characters
+            let freq = new Array(MAX);
+            freq.fill(0);
+
+            // Update the frequency array
+            for (let i = 0; i < n; i++) {
+                freq[s[i].charCodeAt() - 'a'.charCodeAt()]++;
+            }
+
+            // Print the frequency in alphatecial order
+            for (let i = 0; i < MAX; i++) {
+                // If the current alphabet doesn't
+                // appear in the string
+                if (freq[i] == 0)
+                    continue;
+
+                // document.write(String.fromCharCode(i +
+                //     'a'.charCodeAt()) + "" + freq[i]);
+                document.write(`${freq[i]}${String.fromCharCode(i +
+                    'a'.charCodeAt()).toUpperCase()}`)
+            }
+        }
+
+        let f = "kkzyxseekmaabbb";
+        let m = f.length;
+
+        compressString(f, m);
+
+    </script>
+</body>
+
+</html>
